@@ -1,0 +1,53 @@
+body { 
+	color: #FFFFFF; 
+	background-color: #AA8866;
+}
+
+a {
+	color: #FFFFDD; 
+}
+
+hr {
+	border-color: #FFFFDD; 
+}
+
+.quote { 
+	font-style:italic;
+	color : #332222;	
+}
+
+.reference { 
+	font-size: 8pt;
+}
+
+.contrast { 
+	color: #000000; 
+}
+
+.headerText { 
+	color: #BB8855; 
+}
+
+.headerBG { 
+	background-color: #FFFFFF;
+	height: 60px;
+}
+
+.textBox {
+	color: #000000;
+	border-color : #FFFFFF;	
+}
+
+.breakBox {
+	background-color: #997755;
+	border-color: #FFFFDD;
+	float: right;
+}
+
+.articleLink {
+	color: #333300;
+}
+
+.headingLink {
+	color: #333300;
+}

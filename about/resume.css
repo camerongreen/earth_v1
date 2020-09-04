@@ -1,0 +1,217 @@
+/*
+	My Resume CSS
+	camerongreen <at> gmail <dot> com
+*/
+
+/* {{{ Global Element Overrides */
+
+body {
+	background-color: #AAAAAA;
+	background-image: url(images/resume_background.png);
+	background-position: top right;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	font-family: Arial, Helvetica, Sans-Serif; 
+	font-size: 12pt;
+	color: #000000;
+	padding-left: 50%;
+}
+
+img {
+	border-width : medium;	
+	border-color : #000000;	
+	border-style : double;	
+}
+
+a {
+	font-size: 11pt;
+	color: #441188; 
+}
+
+/* }}} */
+
+/* {{{ Resume Intro */
+
+.resumeIntro { 
+	background-color: #999999; 
+	background-image: url(images/manjus_flower_black.png);
+	background-position: right;
+	background-repeat: repeat-y;
+	margin-left : -350px;	
+	width: 700px;	
+	margin-top : 30px;	
+	margin-bottom : 10px;	
+	padding: 10px;	
+	border-width : thin;	
+	border-color : #555555;	
+	border-style : solid;	
+	height: 224px;
+}
+
+.resumeIntro img { 
+	padding : 1px;	
+	border-width : thin;	
+	border-color : #000000;	
+	border-style : solid;	
+	float: left; 
+	width: 123px; 
+	height: 214px;
+}
+
+.introHeading { 
+	font-size: 24pt;
+	font-weight: bold;
+	padding-left : 200px;	
+	margin-top : 5px;	
+	margin-bottom : 20px;	
+}
+
+.introFieldVal { 
+	font-size: 20px;
+	color: white; 
+	text-align: left;
+	margin: 5px;
+	margin-left: 10px;
+}
+	
+.introFieldDesc { 
+	float: left;
+	font-size: 20px;
+	color: #232323; 
+	text-align: right;
+	margin-left: 20px;
+	margin-right: 5px;
+}
+
+/* }}} */
+
+/* {{{ Sections */
+
+.sectionHeading { 
+	margin-left : -470px;	
+	font-size: 16pt;
+	text-align: left;
+}
+
+.section {
+	margin-left : -450px;	
+	width: 900px;	
+	background-color: #FFFFFF; 
+	background-image: url(images/manjus_flower.png);
+	background-position: right;
+	background-repeat: repeat-y;
+	margin-top : 10px;	
+	margin-bottom : 10px;	
+	padding: 10px;	
+	border-width : thin;	
+	border-color : #555555;	
+	border-style : solid;	
+}
+
+.sectionElement { 
+	padding : 5px;	
+}
+	
+.sectionValue { 
+	background-color: #F9F9F9; 
+	margin-left: 140px;
+	padding : 5px;	
+	margin-right : 67px;	
+}
+	
+.sectionDesc { 
+	float: left;
+	padding : 5px;	
+	color: #666666; 
+	border-width : thin;	
+	border-color : #D5D5D5;	
+	border-bottom-style : solid;	
+	font-weight: bold;
+	text-align: right;
+	width: 120px;
+	height: 100%;
+}
+
+.minorHeading { 
+	margin-top: 15px;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.apparition {
+	display: none;
+	padding-top: 10px;
+}
+
+/* }}} */
+
+/* {{{ Academic History */
+
+h1 { 
+	font-weight: bold;
+	font-size: 25px;
+	text-align: center;
+}
+
+h2 { 
+	padding: 10px;
+	font-size: 16px;
+	text-align: center;
+}
+
+.attribute { 
+	background-color : #888888;	
+}
+
+.attributeValue { 
+	background-color : #FFFFFF;	
+	text-align: left;
+}
+
+.result { 
+	text-align: left;
+}
+
+.unitName { 
+	text-align: left;
+}
+
+.otherText { 
+	color: #444444; 
+}
+
+.yearHeading { 
+	color: #CCCCCC; 
+	border-width : thin;	
+	background-color : #888888;	
+	border-color: #555555; 
+	border-style : solid;	
+}
+
+.semesterTable { 
+	margin-left : 20px;	
+	border-width : thin;	
+	border-color: #555555; 
+	border-style : solid;	
+}
+
+.ahenclosing { 
+	margin-left: -350px;
+	width: 900px;
+	text-align: center;
+}
+
+.enclosing { 
+	margin-left: -450px;
+	width: 900px;
+	text-align: center;
+}
+
+.colHeading { 
+	font-size: 10pt;
+	font-weight: bold;
+	color: #777777; 
+	background-color: white; 
+}
+
+/* }}} */

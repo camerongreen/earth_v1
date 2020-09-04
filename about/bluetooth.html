@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta name="author" content="Cameron Green" />
+<meta name="keywords" content="cameron green,camerongreen,cameron david green,Cameron Green,Cameron David Green,EARTH,Fedora,bluetooth,Motorola,v525,mobile,phone" />
+<meta name="description" content="How I got my Fedora box talking bluetooth to my Motorola v525 mobile phone." />
+	<title>E.A.R.T.H. Cameron Green</title>
+	<link rel="stylesheet" href="../common.css" />
+	<link rel="stylesheet" href="about.css" />
+</head>
+<body id="bg">
+<div class="headerBG">
+	<a href="../../about/index.html" onclick="top.document.location=this.href;return false"><img src="../images/earth2.gif" alt="About Page" style="float:left;"/></a>
+	<div class="headerText">
+	RM Safe
+	</div>
+</div>
+	<div>
+	<p>
+		I bought a Motorola v525 phone, and now wanted to figure out how to get mp3's, games etc onto it.  My setup is a little usb bluetooth dongle, and Fedora Core 1 Linux.  I found this process really easy, but apparently it wasn't for everyone so I've put up this list of what I did, it's done after the fact so if I forgot a step forgive me.
+	</p>
+	<p>
+		Plug in the bluetooth dongle, power up your phone.
+	</p>
+	<p>
+	Then the packages....most of these have other dependencies, follow them all, I didn't cut any corners.
+	<ol>
+		<li>bluez-utils</li>
+		<li>bluez-libs</li>
+		<li>bluez-sdp</li>
+		<li>gnome-bluetooth</li>
+		<li>openobex</li>
+	</ol>
+	</p>
+	<p>
+		OK next we need to tell the phone that we want to connect via bluetooth.  Go into 'Settings' -> 'Connection' -> 'Bluetooth Link' -> 'Setup'
+	</p>
+	<p>
+		First set 'Power' to on, then select 'Find Me', it will tell you that the phone can be found for 60 seconds.
+	</p>
+	<p>
+		Back to the PC.  The first time you go through this process you will be prompted to put in numbers for the phone and pc to identify/authorise each other.  This only happens once.
+	</p>
+	<p>
+		These are the commands I use to put stuff on it...
+		<ol>
+			<li>service bluetooth start</li>
+			<li>hciconfig hci0 up</li>
+			<li>hcitool scan - this will give you the BD address of the phone (in MAC address format), copy that into another document</li>
+			<li>gnome-obex-send --dest 00:0B:28:DE:22:53 file.mp3 - where dest is the BD address and file is the mp3 you want to put on the phone</li>
+		</ol>
+	</p>
+	<p>
+		The phone should ask you if you want to accept a file transfer...select yes!  The phone seems to know about different file types, if it is a .jar game file it will ask you if you want to install it, if it is an mp3 it will ask you if you want to make it a ring tone.
+	</p>
+	<p>
+		You can also use Nautilus, type 'nautilus &' on the command line, do the hciconfig step, then type in 'bluetooth://' into the Nautilus address bar, you should see the phone.
+	</p>
+	<p>
+		To get photos etc off the phone, set up the bluetooth link as described above, this time using the obex server :
+	</p>
+	<p>
+		<ol>
+			<li>service bluetooth start</li>
+			<li>hciconfig hci0 up</li>
+			<li>hcitool scan - this will give you the BD address of the phone (in MAC address format), copy that into another document</li>
+			<li>gnome-obex-server &</li>
+		</ol>
+	</p>
+	<p>
+		Then go to a photo, click on the menu button, then you will get 'move' or 'copy' options, after selecting one of these, the photo will turn up in the root users home directory.
+	</p>
+	<p>
+	I'm still new to this process, I haven't got the calendar syncing with anything, I haven't put any weird file types on the phone (to use it for file storage like a bluetooth enabled usb key) and yesterday I downloaded a photo off the phone that I wanted to put back on but was unable to.  Will put answers to these up if and when I get them.
+	</p>
+	<br />
+		<a href="code.html">Back to Code</a>
+</div>
+
+<div style="text-align:right;">
+<br />
+<br />
+<br />
+<a href="../../index.html" onclick="top.document.location='/';return false;" class="linkSmall">E.A.R.T.H.</a><br />
+<a href="email.html" class="linkSmall">Cameron Green</a>
+<br />
+<span class="basicSmaller">Last Updated - Fri, 30 Jan 2015 07:04:48 -0600</span>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-579291-1";
+urchinTracker();
+</script>
+</body>
+</html>
+

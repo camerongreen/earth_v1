@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta name="author" content="Cameron Green" />
+<meta name="keywords" content="cameron green,camerongreen,cameron david green,Cameron Green,Cameron David Green,EARTH" />
+<meta name="description" content="Dynamic HTML to make custom t-shirts." />
+	<title>E.A.R.T.H. Cameron Green</title>
+	<link rel="stylesheet" href="../common.css" />
+	<link rel="stylesheet" href="about.css" />
+</head>
+<body id="bg">
+<div class="headerBG">
+	<a href="../../about/index.html" onclick="top.document.location=this.href;return false"><img src="../images/earth2.gif" alt="About Page" style="float:left;"/></a>
+	<div class="headerText">
+	T-Shirt Preview
+	</div>
+</div>
+	<script type="text/javascript">
+function change_background_color(element_id, color) {
+	var element = document.getElementById(element_id);
+	element.style.backgroundColor = color;
+}
+function change_text(element, text) {
+	var element = document.getElementById(element);
+	element.innerHTML = text;
+	element.style.display = "block";
+}
+function change_text_color(element, color) {
+	var element = document.getElementById(element);
+	element.style.color = color;
+}
+function change_text_size(element, size) {
+	var element = document.getElementById(element);
+	element.style.fontSize = size;
+}
+function change_text_font(element, font) {
+	var element = document.getElementById(element);
+	element.style.fontFamily = font;
+}
+function show_tshirt(form) {
+	change_text("text", form["text"].value);
+	return (false);
+}
+</script>
+<style type="text/css">
+	img {
+		vertical-align: bottom;
+	} 
+
+	#tshirt {
+		float:left;
+		background-color:#000000;
+		margin: 10px;
+	}
+
+	#text {
+		font-family:Arial; 
+		position:absolute; 
+		color:white; 
+		top:155px; 
+		left:180px; 
+		height:100px; 
+		width:156px; 
+		color:#CC0000; 
+		font-family:impact; 
+		font-size:20px; 
+		text-align:center; 
+	}
+
+	.optionContainer {
+		float:none; 
+		color:#000000; 
+		background-color:#FFFFFF; 
+		border-width:medium; 
+		border-color:#aaaaaa; 
+		border-style:solid; 
+		padding:1ex; 
+		margin:1ex; 
+	}
+
+	.colourOption{
+		float:left; 
+		height:20px;
+		width:30px;
+		margin:3px;
+		border-width:thin; 
+		border-color:#000000; 
+		border-style:solid; 
+	}
+
+	.fontBox {
+		border-width:thin; 
+		border-color:#000000; 
+		border-style:solid; 
+		padding-left:1ex; 
+		padding-right:1ex;
+	}
+
+	#formBox {
+		margin-left:510px; 
+	}
+</style>
+<div id="tshirt"><div id="text">Thought Criminal</div><img src="images/tshirt.gif" alt="tshirt preview" height="500" width="500" /></div>
+<div id="formBox">
+	<form name="chomsky" onsubmit="return show_tshirt(this)">
+	<div class="optionContainer">
+		<div class="optionHeading">Text</div>
+		<textarea name="text">Thought Criminal</textarea>
+		<button type="submit">Change</button>
+	</div>
+	<div class="optionContainer" style="height:45px;">
+		<div class="optionHeading">Text Color</div>
+		<div class="colourOption" style="background-color:#000000;" onclick="change_text_color('text', '#000000');"></div>
+		<div class="colourOption" style="background-color:#FFFFFF;" onclick="change_text_color('text', '#FFFFFF');"></div>
+		<div class="colourOption" style="background-color:#888888;" onclick="change_text_color('text', '#888888');"></div>
+		<div class="colourOption" style="background-color:#CC0000;" onclick="change_text_color('text', '#CC0000');"></div>
+		<div class="colourOption" style="background-color:#881188;" onclick="change_text_color('text', '#881188');"></div>
+		<div class="colourOption" style="background-color:#118811;" onclick="change_text_color('text', '#118811');"></div>
+		<div class="colourOption" style="background-color:#778811;" onclick="change_text_color('text', '#778811');"></div>
+		<div class="colourOption" style="background-color:#FFAA00;" onclick="change_text_color('text', '#FFAA00');"></div>
+	</div>
+	<div class="optionContainer">
+		<div class="optionHeading">Text Size</div>
+		<span class="fontBox" style="font-size:15px;" onclick="change_text_size('text', '15px');">Small</span>
+		<span class="fontBox" style="font-size:20px;" onclick="change_text_size('text', '20px');">Medium</span>
+		<span class="fontBox" style="font-size:30px;" onclick="change_text_size('text', '30px');">Large</span>
+	</div>
+	<div class="optionContainer">
+		<div class="optionHeading">Text Font</div>
+		<span class="fontBox" style="font-family:arial;" onclick="change_text_font('text', 'arial');">Arial</span>
+		<span class="fontBox" style="font-family:times;" onclick="change_text_font('text', 'times');">Times</span>
+		<span class="fontBox" style="font-family:courier new;" onclick="change_text_font('text', 'courier new');">Courier</span>
+		<span class="fontBox" style="font-family:verdana;" onclick="change_text_font('text', 'verdana');">Verdana</span>
+		<span class="fontBox" style="font-family:comic sans ms;" onclick="change_text_font('text', 'comic sans ms');">Comic Sans</span>
+		<span class="fontBox" style="font-family:impact;" onclick="change_text_font('text', 'impact');">Impact</span>
+		<span class="fontBox" style="font-family:georgia;" onclick="change_text_font('text', 'georgia');">Georgia</span>
+		<span class="fontBox" style="font-family:trebuchet ms;" onclick="change_text_font('text', 'trebuchet ms');">Trebuchet</span>
+	</div>
+	<div class="optionContainer" style="height:45px;">
+		<div class="optionHeading">Tshirt Color</div>
+		<div class="colourOption" style="background-color:#000000;" onclick="change_background_color('tshirt', '#000000');"></div>
+		<div class="colourOption" style="background-color:#FFFFFF;" onclick="change_background_color('tshirt', '#FFFFFF');"></div>
+		<div class="colourOption" style="background-color:#888888;" onclick="change_background_color('tshirt', '#888888');"></div>
+		<div class="colourOption" style="background-color:#CC0000;" onclick="change_background_color('tshirt', '#CC0000');"></div>
+		<div class="colourOption" style="background-color:#111188;" onclick="change_background_color('tshirt', '#111188');"></div>
+		<div class="colourOption" style="background-color:#010144;" onclick="change_background_color('tshirt', '#010144');"></div>
+		<div class="colourOption" style="background-color:#118811;" onclick="change_background_color('tshirt', '#118811');"></div>
+		<div class="colourOption" style="background-color:#778811;" onclick="change_background_color('tshirt', '#778811');"></div>
+		<div class="colourOption" style="background-color:#FFAA00;" onclick="change_background_color('tshirt', '#FFAA00');"></div>
+	</div>
+	</form>
+</div>
+<div>
+	<a href="code.html">Back to Code</a>
+</div>
+
+<div style="text-align:right;">
+<br />
+<br />
+<br />
+<a href="../../index.html" onclick="top.document.location='/';return false;" class="linkSmall">E.A.R.T.H.</a><br />
+<a href="email.html" class="linkSmall">Cameron Green</a>
+<br />
+<span class="basicSmaller">Last Updated - Fri, 30 Jan 2015 07:04:48 -0600</span>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-579291-1";
+urchinTracker();
+</script>
+</body>
+</html>
+

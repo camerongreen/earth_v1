@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>E.A.R.T.H. Cameron Green</title>
+	<meta name="author" content="Cameron Green" />
+	<link rel="stylesheet" href="../earth.css" />
+	<script type="text/javaScript">
+	<!--
+		var original = null;
+		var convert = new Array("0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F");
+
+		// this function from Javascript FAQ
+		function return_base(number,base) {
+		    if (number < base) var output = convert[number];
+ 		   else {
+    		    var MSD = "" + Math.floor(number / base);
+       		 var LSD = number - MSD*base;
+ 		       if (MSD >= base) var output = returnBase(MSD,base) + convert[LSD];
+  		      else var output = convert[MSD] + convert[LSD];
+   		 }
+		    return output;
+		}
+
+		function modify_colour(colour, action) {
+			var return_val = new Array();
+
+			if (colour.indexOf("#") == 0) {
+				colour = colour.substring(1);
+			}
+
+			return_val["red"] = "0x" + colour.substring(0,2);
+			return_val["green"] = "0x" + colour.substring(2,4);
+			return_val["blue"] = "0x" + colour.substring(4,6);
+
+			if (action == "dec") {
+				for (i in return_val) {
+					return_val[i] = return_val[i] - 20;
+					return_val[i] = return_base(((return_val[i] < 0) ? 0 : return_val[i]), 16);
+					if (return_val[i].length < 2) {
+						return_val[i] = "0" + return_val[i];
+					}
+				}
+			}
+			else {
+				for (i in return_val) {
+					return_val[i] = (return_val[i] / 1) + 20;
+					return_val[i] = return_base(((return_val[i] > 255) ? 255 : return_val[i]), 16);
+				}
+			}
+
+			var return_colour = "#" + return_val["red"] + return_val["green"] + return_val["blue"];
+
+			return (return_colour);
+		}
+
+
+		function colour_change (select) {
+			var bg = parent.main.document.getElementById("bg");
+			var old_colour = parent.main.document.bgColor;
+			if (original != null) {
+				original = old_colour;
+			}
+			var new_colour;
+
+			switch (select.value) {
+				case "black" :
+					new_colour = "#000000";
+					break;
+				case "darker" :
+					new_colour = modify_colour(old_colour, "dec");
+					break;
+				case "lighter" :
+					new_colour = modify_colour(old_colour, "inc");
+					break;
+				case "white" :
+			 		new_colour = "#FFFFFF";
+					break;
+				case "default" :
+				default :
+			 		new_colour = original;
+					break;
+			}
+	
+			bg.style.backgroundColor = new_colour;
+		}
+
+		var lynxselect = new Image();
+		lynxselect.src = "../images/linkselect.gif";
+		var aboutselect = new Image();
+		aboutselect.src = "../images/aboutselect.gif";
+		var mainselect = new Image();
+		mainselect.src = "../images/mainselect.gif";
+		var emailselect = new Image();
+		emailselect.src = "../images/emailselect.gif";
+		var earthselect = new Image();
+		earthselect.src = "../images/earth2.gif";
+	//-->
+	</script>
+</head>
+<body class="titleBG" id="bg">
+<form action="http://camerongreen.org/old/a/just_put_in_for_xhtml_compliance">
+<table width="99%">
+<tr valign="top">
+	<td>
+	<a href="main.html" onmouseover="document.images['maingif'].src=mainselect.src;" onmouseout="document.images['maingif'].src='../images/main.gif';" title="Main Page" onclick="top.main.document.location='main.html';return false;"><img src="../images/main.gif" id="maingif" alt="main"/></a>
+	</td>
+	<td>
+		<a href="links.html" onmouseover="document.images['lynx'].src=lynxselect.src;" onmouseout="document.images['lynx'].src='../images/links.gif';" title="Links Page" onclick="top.main.document.location='links.html';return false;"><img src="../images/links.gif" id="lynx" alt="links" /></a>
+	</td>
+	<td>
+		<a href="../about/index.html" onmouseover="document.images['author'].src=aboutselect.src;" onmouseout="document.images['author'].src='../images/about.gif';" title="Author/About" onclick="top.document.location='../about/';return false;"><img src="../images/about.gif" id="author" alt="author"/></a>
+	</td>
+	<td>
+		<a href="../about/email.html" onmouseover="document.images['mail'].src=emailselect.src;" onmouseout="document.images['mail'].src='../images/email.gif';" title="Email" onclick="top.main.document.location='../about/email.html';return false;"><img src="../images/email.gif" id="mail" alt="Mail" /></a>
+	</td>
+	<td>
+		<select name="bgcol" onclick="colour_change(this)">
+			<option selected="selected" value="same">Colour</option>
+			<option value="white">White</option>
+			<option value="lighter">Lighter</option>
+			<option value="default">Default</option>
+			<option value="darker">Darker</option>
+			<option value="black">Black</option>
+		</select>
+	</td>
+	<td align="right">
+		<a href="../../index.html" target="top" onmouseover="document.images['earthimg'].src=earthselect.src; return true;" onmouseout="document.images['earthimg'].src='../images/earth.gif'; return true;" title="Earth Main" onclick="top.document.location='../';return false;"><img src="../images/earth.gif" id="earthimg" height="25" alt="Earth Main" /></a>
+	</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

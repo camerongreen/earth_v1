@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta name="author" content="Cameron Green" />
+<meta name="keywords" content="cameron green,camerongreen,cameron david green,Cameron Green,Cameron David Green,EARTH" />
+<meta name="description" content="This is a perl script privding a safer version of rm." />
+	<title>E.A.R.T.H. Cameron Green</title>
+	<link rel="stylesheet" href="../common.css" />
+	<link rel="stylesheet" href="about.css" />
+</head>
+<body id="bg">
+<div class="headerBG">
+	<a href="../../about/index.html" onclick="top.document.location=this.href;return false"><img src="../images/earth2.gif" alt="About Page" style="float:left;"/></a>
+	<div class="headerText">
+	RM Safe
+	</div>
+</div>
+	<div>
+	<p>
+		You won't notice this script until you really need it, and then it will be a life saver.
+	</p>
+	<p>
+	I used to have to download backups from a friends server, one day I downloaded 2 Gb (I had a quota of 3Gb) then deleted them from his server. Well thats what I thought, I typed the rm command in the wrong window, so I'd lost the backups and didn't have enough quota to get them again!  It taught me to be more careful, for instance I now use different background colours for the terminals of my different servers, but it also prompted me to write these perl scripts which form the basis of rm safe. 
+	</p>
+	<p>
+	Initially because of my losing 2Gb experience, the script put everything in one big partition with each user having their own directory within it.  I've changed that as it could be utilised by dodgy users as a way of getting around quotas etc, now it puts it by default into each users ~/.recyle directory.  It is also now up to users to clean up their own areas as they see fit, whereas that used to be done from a centralised cron job.  
+	</p>
+	<p>
+	So using the script is simple enough, how I do it is make sure it is executable, place it in my path and alias rm to it (whilst I was getting used to it I aliased rms to it). So if you are using bash in your ~/.bashrc file:
+	<pre>
+	alias rm="rm_safe.pl"
+	</pre>
+	</p>
+	<p>
+	And in your ~/.bash_profile
+	<pre>
+	export PATH=$PATH:/path/to/rm_safe/
+	</pre>
+	</p>
+	<p>
+	To cleanup the old files, add a call to 'rm_safe.pl --clean_up=42' in your cron.  Alternatively you can just run this manually every now and then when you need some space.
+	</p>
+	<p>
+		Pretty much every command also has a "--debug" option, so you can test things out without changing anything.  It also has a --help option for more information.  Good luck, let me know if you find any bugs or have any suggested improvements.
+	</p>
+	<p>
+	<a href="http://camerongreen.org/code/rm_safe/rm_safe.pl">RM Safe Script</a>
+	</p> 
+		<br />
+	<a href="code.html">Back to Code</a>
+</div>
+
+<div style="text-align:right;">
+<br />
+<br />
+<br />
+<a href="../../index.html" onclick="top.document.location='/';return false;" class="linkSmall">E.A.R.T.H.</a><br />
+<a href="email.html" class="linkSmall">Cameron Green</a>
+<br />
+<span class="basicSmaller">Last Updated - Fri, 30 Jan 2015 07:04:48 -0600</span>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-579291-1";
+urchinTracker();
+</script>
+</body>
+</html>
+

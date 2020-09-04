@@ -1,0 +1,58 @@
+body { 
+	background-color: #CD5D5C; 
+	color: #FFFFFF; 
+}
+
+a {
+	color: #3F0000;
+}
+
+hr {
+	border-color: #3F0000;
+}
+
+h3 {
+	text-decoration: underline;
+}
+
+.contrast { 
+	color: #000000; 
+}
+
+.headerText { 
+	color: #CD5D5C; 
+}
+
+.headerBG { 
+	background-color: #FFFFFF;
+	height: 80px;
+}
+
+.intro {
+	color: #FFFFFF;
+	margin-left : 5%;	
+	margin-right : 5%;	
+	padding : 10px;
+}
+
+.listBox {
+	color: #FFFFFF;
+	margin-left : 5%;	
+	margin-right : 5%;	
+	border-style : double;	
+	border-width : medium;	
+	border-color : #FFFFFF;	
+	padding : 10px;
+	padding-left : 40px;
+}
+
+.breakBox {
+	border-color: #3F0000;
+	background-color: #DE6E6D; 
+}
+
+.articleLink {
+	color: #3F0000;
+}
+
+

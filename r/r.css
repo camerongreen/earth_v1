@@ -1,0 +1,44 @@
+body { 
+	color: #FFFFFF; 
+	background-color: #777777;
+}
+
+a {
+	color: #003F00;
+}
+
+hr {
+	border-color: #003F00;
+}
+
+.contrast { 
+	color: #000000; 
+}
+
+.headerText { 
+	color: #777777; 
+}
+
+.headerBG { 
+	background-color: #FFFFFF;
+	height: 74px;
+}
+
+.textBox {
+	color: #000000;
+	border-color : #FFFFFF;	
+}
+
+.breakBox {
+	background-color: #888888;
+	border-color: #111111;
+	float: right;
+}
+
+.articleLink {
+	color: #111111;
+}
+
+.headingLink {
+	color: #111111;
+}

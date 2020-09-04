@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta name="author" content="Cameron Green" />
+<meta name="keywords" content="cameron green,camerongreen,cameron david green,Cameron Green,Cameron David Green,EARTH" />
+<meta name="description" content="Zone Edit IP Updater." />
+	<title>E.A.R.T.H. Cameron Green</title>
+	<link rel="stylesheet" href="../common.css" />
+	<link rel="stylesheet" href="about.css" />
+</head>
+<body id="bg">
+<div class="headerBG">
+	<a href="../../about/index.html" onclick="top.document.location=this.href;return false"><img src="../images/earth2.gif" alt="About Page" style="float:left;"/></a>
+	<div class="headerText">
+	Update IP
+	</div>
+</div>
+	<div>
+	<h1>Update IP</h1>
+	<p>
+	I run my website on my dynamic IP linux box at home.  To make my domain name camerongreen.org map to my dynamic IP address I use the excellent <a href="http://www.zoneedit.com/" onclick="window.open(this.href);return false;">Zone Edit</a>.
+	</p>
+	<p>
+		They run a free dns service, that allows you to update your ip when it changes.  All it takes is a simple script to do this, and then to call it from the right place.
+	</p>
+	<p>
+	Here is the simple script, which you can download by right clicking and saving <a href="http://camerongreen.org/code/update_ip">this</a> :
+	</p>
+	<pre>
+#!/usr/bin/perl -w
+# Simple script to dynamically update zoneedit ip
+# only does update if ip has changed to avoid unnecessary requests
+# therefore you can run it in your cron as often as you want
+#
+# 20050129 i at camerongreen d0t org
+
+use strict;
+use Socket;
+use Getopt::Long;
+
+my ($debug, $zone_ip);
+
+GetOptions(
+	'debug'			=> \$debug,
+);
+
+my $user='username';
+my $password='password';
+my $host='example.org';
+my $email_receiver='me@example.org';
+my $email_sender='box@example.org';
+# Enter the location of sendmail.
+my $mail_programme = "/usr/sbin/sendmail -t";
+
+# this gets your ip, may have to change for your system
+if (inet_aton($host)) {
+	$zone_ip = inet_ntoa(inet_aton($host));
+	if ($debug) {
+		print "Retrieved Zone IP : $zone_ip\n\n";
+	}
+} 
+else {
+	if ($debug) {
+		print "Did not retrieve Zone IP\n\n";
+	}
+	else {
+		&error($email_receiver, $email_sender, "An error occurred retrieving zone ip");
+	}
+
+}
+
+my $current_ip=`/sbin/ifconfig ppp0 | /bin/grep 'inet addr' | /bin/sed -e 's/^ *inet addr://' -e 's/ .*\$//'`;
+
+chomp $current_ip;
+
+if ($debug) {
+	print "Current IP : $current_ip\n\n";
+}
+
+unless ($current_ip) {
+	if ($debug) {
+		print "Did not retrieve Current IP\n\n";
+	}
+	else {
+		&error($email_receiver, $email_sender, "An error occurred retrieving current ip");
+	}
+}
+
+# if the newest ip and the one in file are different, update ip
+if ($current_ip ne $zone_ip) {
+	if ($debug) {
+		print "wget -O - --http-user=${user} --http-passwd=${password} \"http://dynamic.zoneedit.com/auth/dynamic.html?host=${host}&dnsto=$current_ip\"\n\n";
+	}
+	else {
+		my $output=`wget -O - --http-user=${user} --http-passwd=${password} "http://dynamic.zoneedit.com/auth/dynamic.html?host=${host}&dnsto=$current_ip"`;
+
+		# So far, zone edit has returned the following messages
+		# <ERROR CODE="707" TEXT="Duplicate updates for the same host/ip, adjust client settings" ZONE="camerongreen.org" HOST="camerongreen.org">
+		# <ERROR CODE="707" TEXT="Too frequent updates for the same host, adjust client settings" ZONE="camerongreen.org" HOST="camerongreen.org">
+		# <SUCCESS CODE="200" TEXT="Update succeeded." ZONE="camerongreen.org" HOST="camerongreen.org" IP="203.113.213.14">
+		# <SUCCESS CODE="201" TEXT="No records need updating." ZONE="camerongreen.org" HOST="camerongreen.org">
+		`logger \'$output\'`;
+		# email admin that ip has changed
+		&mail($email_receiver, $email_sender, $output);
+	}
+}
+
+# log to syslog that script has run and ip returned
+my $message = $host . ":" . $current_ip . " (dns " . $zone_ip . ")";
+
+if ($debug) {
+	print "$message\n\n";
+}
+else {
+	`logger \'$message\'`;
+}
+
+sub mail {
+	my ($email_to, $email_from, $message) = @_;
+
+	open (MAIL,"|${mail_programme} -f${email_from}");
+	print MAIL "To: $email_to\n";
+	print MAIL "From: $email_from\n";
+	print MAIL "Subject: Zone Output\n";
+	print MAIL "$message\n\n";
+	close MAIL;
+}
+
+sub error {
+	my ($email_to, $email_from, $error) = @_;
+
+	&mail($email_to, $email_from, $error);
+
+	die ($error);
+}
+	</pre>
+	<p>
+Now I have this in two places, firstly in the cron running every 5 minutes or so, but also in a file /etc/ppp/ip-up.local that roaring penguins adsl scripts call each time the adsl IP changes.
+</p>
+<p>
+OK so the script could do with a bit better error checking, my excuse is that it started life as a shell script and only got perled at a later date.  You could no doubt write it yourself pretty quickly, but if you use this one it is pretty solid, and if you are reading this, it works : )
+</p>
+<p>
+If you have any other questions about home hosting of your domain, let me know.
+</p>
+	
+		<br />
+	<a href="code.html">Back to Code</a>
+</div>
+
+<div style="text-align:right;">
+<br />
+<br />
+<br />
+<a href="../../index.html" onclick="top.document.location='/';return false;" class="linkSmall">E.A.R.T.H.</a><br />
+<a href="email.html" class="linkSmall">Cameron Green</a>
+<br />
+<span class="basicSmaller">Last Updated - Fri, 30 Jan 2015 07:04:48 -0600</span>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-579291-1";
+urchinTracker();
+</script>
+</body>
+</html>
+

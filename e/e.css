@@ -1,0 +1,47 @@
+body { 
+	background-color: seagreen;
+	color: #FFFFFF;
+}
+
+a {
+	color: #003F00;
+}
+
+hr {
+	border-color: #003F00;
+}
+
+.contrast { 
+	color: #000000; 
+}
+
+.headerText { 
+	color: seagreen; 
+}
+
+.headerBG { 
+	background-color: #FFFFFF;
+	height: 73px;
+}
+
+h2 {
+	background-color: #000000;
+}
+
+.textBox {
+	color: #000000;
+	border-color : #FFFFFF;	
+}
+
+.breakBox {
+	background-color: #44AA66;
+	border-color: #003F00;
+}
+
+.articleLink {
+	color: #003F00;
+}
+
+.headingLink {
+	color: #003F00;
+}

@@ -1,0 +1,83 @@
+body { 
+	background-color: darkorchid;
+	font-family: Arial, Helvetica, Sans-Serif; 
+	font-size: 15px;
+	color: white; 
+}
+
+.fieldVal { 
+	font-size: 12px;
+	background-color: #662288;
+}
+
+
+.fieldDesc { 
+	font-size: 12px;
+	color: black; 
+	font-weight: bold; 
+	text-align: right; 
+}
+
+
+a { 
+	font-size: 16px;
+	color: #FFAAFF; 
+	font-weight: bold; 
+}
+
+
+.bigError { 
+	text-align: center; 
+	font-size: 23px;
+	font-weight: bold;
+}
+
+
+.headerText { 
+	text-align: right; 
+	font-size: 23px;
+	font-weight: normal;
+	color: darkorchid; 
+}
+
+.titleText { 
+	text-align: center; 
+	font-size: 14px;
+	font-weight: normal;
+	color: silver; 
+}
+
+.headerBG { 
+	background-color: black;
+	margin-right: 8px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	width: 100%;
+}
+
+.titleBG { 
+	background-color: black;
+	margin-right: 8px;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	width: 100%;
+}
+
+.indent { 
+	margin-top: 20px;
+	margin-left: 50px;
+}
+
+.center { 
+	margin-right: auto;
+	margin-left: auto;
+}
+
+img {
+	border: 0;
+}

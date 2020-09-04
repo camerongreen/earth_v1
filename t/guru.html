@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta name="author" content="Cameron Green" />
+<meta name="keywords" content="cameron green,camerongreen,cameron david green,transcendence,spirituality,javascript,guru" />
+<meta name="description" content="A bit of fun with Javascript" />
+	<title>E.A.R.T.H. Cameron Green</title>
+	<link rel="stylesheet" href="../common.css" />
+	<link rel="stylesheet" href="t.css" />
+</head>
+<body id="bg">
+<div class="headerBG">
+	<a href="../../t/index.html" onclick="top.document.location=this.href;return false"><img src="images/theader.gif" alt="Transcendence Page" style="float:left;"/></a>
+	<div class="headerText">
+	Guru
+	</div>
+</div>
+	<script type="text/javaScript">
+var temp=window.confirm("Are you ready to confront the unknown powers of JavaScript")
+if (!temp) {	
+	window.alert("The only thing we have to fear, is fear itself")
+	window.location = "main.html"
+}
+else {
+	window.alert("The open mind travels farthest")
+}
+
+var y=window.prompt("What is your name seeker?  It will help me to locate your future in the ether.")
+
+if (!y){
+	y = "Wanderer";
+}
+else if (y == "undefined"){
+	y = "Stranger";
+}
+
+window.alert("Ask wisely or foolishly "+y+", the guru will answer in kind.")
+
+function comments(form) {
+
+	var number=Math.round(100*Math.random())
+
+	var temp=form.counter.value;
+
+	if (temp >= 3){
+		alert ("...The Guru Only Answers Three Questions Per Visit\nIgnore the wisdom of the guru at your own peril "+y+", Fare well");
+		document.location = 'main.html';
+	}		
+	else if (number > 67){
+		form.answer.value = "YES!";
+	}
+	else if (number < 34){
+		form.answer.value = "NO!";
+	}
+	else{
+		form.text.value = "MAYBE";
+	}
+
+	form.counter.value++;
+}
+</script>
+<div style="text-align:center">
+<br />
+<img src="images/guru.gif" alt="The JavaScript Guru" />
+<h2>Greetings <script type="text/javascript">window.document.write(y)</script></h2>
+<p>
+The<br />
+Guru<br />
+only gives 3 answers<br />
+In the form of yes, no or maybe<br />
+</p>
+<form action="http://camerongreen.org/old/t/guru&#32;don't&#32;need&#32;no&#32;action">
+<textarea name="problem" rows="4" cols="60" onfocus="this.value='';this.form.answer.value='???'">
+....your question to the guru here
+</textarea>
+<br />
+<input type="button" value="Consult the Guru" onclick="comments(this.form)" />
+<p>THE GURU SAYS...</p> 
+<input type="text" name="answer" size="6" value="???" />
+<input type="hidden" name="counter" value="0" />
+</form>
+<img src="images/guru.gif" alt="The JavaScript Guru" />
+<p>
+Why the JavaScript Guru you might ask...well primarily it was written to do something fun when I was learning JavaScript.  Random number generators and the such aren't very interesting on their own.  It was also done with the thought in mind that any arbitrary questioning of the cosmos was valid, if people consult cards, coins, tealeaves and the like, then it is just as valid to use a random generated number to divine the future.  If the cosmos means it to be, so be it.  I hope you enjoy playing with this.
+</p>
+
+</div>
+
+<div style="text-align:right;">
+<br />
+<br />
+<br />
+<a href="../../index.html" onclick="top.document.location='/';return false;" class="linkSmall">E.A.R.T.H.</a><br />
+<a href="../about/email.html" class="linkSmall">Cameron Green</a>
+<br />
+<span class="basicSmaller">Last Updated - Fri, 30 Jan 2015 07:04:34 -0600</span>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-579291-1";
+urchinTracker();
+</script>
+</body>
+</html>
+

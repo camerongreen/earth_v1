@@ -1,0 +1,43 @@
+body { 
+	color: #FFFFFF; 
+	background-color: #90A4BE;
+}
+
+a {
+	color: #000044;
+}
+
+.contrast { 
+	color: #000000; 
+}
+
+.headerText { 
+	color: #90A4BE; 
+}
+
+.headerBG { 
+	background-color: #FFFFFF;
+	height: 73px;
+}
+
+h2 {
+	background-color: #000000;
+}
+
+.textBox {
+	border-color : #FFFFFF;	
+}
+
+.breakBox {
+	float: right;
+	border-color: #000044;
+	background-color: #8093AD;
+}
+
+.articleLink {
+	color: #000044;
+}
+
+.headingLink {
+	color: #000044;
+}
