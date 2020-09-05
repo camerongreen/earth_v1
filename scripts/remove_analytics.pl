@@ -1,12 +1,16 @@
 #!/user/bin/perl -w
 
-$start_text = '<script src="http://www.google-analytics.com/urchin';
-$end_text = '</script>';
+my $start_text = '<script src="http://www.google-analytics.com/urchin';
+my $end_text = '</script>';
 
-$removing = 0;
-$found_script = 0;
+my $removing = 0;
+my $found_script = 0;
 
-while (<>) {
+open my $file, '<', $ARGV[1] or die "Unable to open $!";
+
+my @output;
+
+while (<$file>) {
   if (index($_, $start_text) == 0) {
     $removing = 1;
   }
@@ -24,6 +28,12 @@ while (<>) {
       }
     }
   } else {
-    print $_;
+    push @output, $_;
   }
+
+  close $file;
+
+  open my $file, '>', $1 or die "Unable to open 2 $!";
+  print $file @output;
+  close $file;
 }
