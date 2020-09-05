@@ -1,21 +1,23 @@
 #!/user/bin/perl -w
 
+use strict;
+use warnings FATAL => 'all';
+
 my $start_text = '<script src="http://www.google-analytics.com/urchin';
 my $end_text = '</script>';
 
 my $removing = 0;
 my $found_script = 0;
 
-open my $file, '<', $ARGV[1] or die "Unable to open $!";
+open my $file, $ARGV[0] or die "Unable to open $!";
 
 my @output;
 
-while (<$file>) {
-  if (index($_, $start_text) == 0) {
+while (my $line = <$file>) {
+  if (index($line, $start_text) == 0) {
     $removing = 1;
   }
   elsif ($removing) {
-    my $line = $_;
     $line =~ s/\s$//g;
 
     # There are two script tags.
@@ -27,13 +29,14 @@ while (<$file>) {
         $removing = 0;
       }
     }
-  } else {
-    push @output, $_;
   }
-
-  close $file;
-
-  open my $file, '>', $1 or die "Unable to open 2 $!";
-  print $file @output;
-  close $file;
+  else {
+    push @output, $line;
+  }
 }
+
+close $file;
+
+open my $write_file, '>', $ARGV[0] or die "Unable to open 2 $!";
+print $write_file @output;
+close $write_file;
