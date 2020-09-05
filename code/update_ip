@@ -1,34 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<meta name="author" content="Cameron Green" />
-<meta name="keywords" content="cameron green,camerongreen,cameron david green,Cameron Green,Cameron David Green,EARTH" />
-<meta name="description" content="Zone Edit IP Updater." />
-	<title>E.A.R.T.H. Cameron Green</title>
-	<link rel="stylesheet" href="../common.css" />
-	<link rel="stylesheet" href="about.css" />
-</head>
-<body id="bg">
-<div class="headerBG">
-	<a href="../../about/index.html" onclick="top.document.location=this.href;return false"><img src="../images/earth2.gif" alt="About Page" style="float:left;"/></a>
-	<div class="headerText">
-	Update IP
-	</div>
-</div>
-	<div>
-	<h1>Update IP</h1>
-	<p>
-	I run my website on my dynamic IP linux box at home.  To make my domain name camerongreen.org map to my dynamic IP address I use the excellent <a href="http://www.zoneedit.com/" onclick="window.open(this.href);return false;">Zone Edit</a>.
-	</p>
-	<p>
-		They run a free dns service, that allows you to update your ip when it changes.  All it takes is a simple script to do this, and then to call it from the right place.
-	</p>
-	<p>
-	Here is the simple script, which you can download by right clicking and saving <a href="../code/update_ip">this</a> :
-	</p>
-	<pre>
 #!/usr/bin/perl -w
 # Simple script to dynamically update zoneedit ip
 # only does update if ip has changed to avoid unnecessary requests
@@ -135,30 +104,3 @@ sub error {
 
 	die ($error);
 }
-	</pre>
-	<p>
-Now I have this in two places, firstly in the cron running every 5 minutes or so, but also in a file /etc/ppp/ip-up.local that roaring penguins adsl scripts call each time the adsl IP changes.
-</p>
-<p>
-OK so the script could do with a bit better error checking, my excuse is that it started life as a shell script and only got perled at a later date.  You could no doubt write it yourself pretty quickly, but if you use this one it is pretty solid, and if you are reading this, it works : )
-</p>
-<p>
-If you have any other questions about home hosting of your domain, let me know.
-</p>
-	
-		<br />
-	<a href="code.html">Back to Code</a>
-</div>
-
-<div style="text-align:right;">
-<br />
-<br />
-<br />
-<a href="../../index.html" onclick="top.document.location='/';return false;" class="linkSmall">E.A.R.T.H.</a><br />
-<a href="email.html" class="linkSmall">Cameron Green</a>
-<br />
-<span class="basicSmaller">Last Updated - Fri, 30 Jan 2015 07:04:48 -0600</span>
-</div>
-</body>
-</html>
-

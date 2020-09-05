@@ -1,24 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<meta name="author" content="Cameron Green" />
-<meta name="keywords" content="cameron green,camerongreen,cameron david green,Cameron Green,Cameron David Green,EARTH" />
-<meta name="description" content="Java class to display scrolling text." />
-	<title>E.A.R.T.H. Cameron Green</title>
-	<link rel="stylesheet" href="../common.css" />
-	<link rel="stylesheet" href="about.css" />
-</head>
-<body id="bg">
-<div class="headerBG">
-	<a href="../../about/index.html" onclick="top.document.location=this.href;return false"><img src="../images/earth2.gif" alt="About Page" style="float:left;"/></a>
-	<div class="headerText">
-	Marquee
-	</div>
-</div>
-	<div>
-	<p>
+<?php
+	require_once("../include/html.inc");
+	
+	$section = "about";
+	$keywords = array('Cameron Green', 'Cameron David Green', 'EARTH');
+	$description = "Java class to display scrolling text.";
+	$heading = "Marquee";
+
+	print heading($section, $heading, $keywords, $description);
+?>
+<div>
+	<p class="basic">
 	<APPLET CODEBASE="../code/Marquee" CODE="Marquee.class" WIDTH="640" HEIGHT="380">
 
 		<!-- Marquee.class was written to enable the proprietary Marquee tag in IE to
@@ -66,26 +57,10 @@
 
 	</APPLET>
 	</p>
-	<p>
-		If you have a look at the source of this page you will find all the available configuration parameters.  These include size, speed, colour, font, drop shadow etc.
-	</p>
-	<p>
-	If you download the gzip file it has the source code, example html and class files if you just want to run it.
-	</p>
-	<a href="../code/Marquee/marquee-0-0-1.tar.gz">Download Marquee class plus source code.</a>
+	<a href="/code/Marquee/marquee-0-0-1.tar.gz" class="link">Download Marquee class plus source code.</a>
 	<br />
-	<a href="code.html">Back to Code</a>
+	<a href="code.php" class="link">Back to Code</a>
 </div>
-
-<div style="text-align:right;">
-<br />
-<br />
-<br />
-<a href="../../index.html" onclick="top.document.location='/';return false;" class="linkSmall">E.A.R.T.H.</a><br />
-<a href="email.html" class="linkSmall">Cameron Green</a>
-<br />
-<span class="basicSmaller">Last Updated - Fri, 30 Jan 2015 07:04:48 -0600</span>
-</div>
-</body>
-</html>
-
+<?php
+	print footer();
+?>
